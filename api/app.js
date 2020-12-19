@@ -5,6 +5,8 @@ const cors = require('cors');
 const { json, urlencoded } = require('body-parser');
 
 const authRouter = require('../auth/auth-router');
+const userRouter = require('../routes/user-router');
+const restricted = require('../middleware/restricted-middleware.js');
 
 const app = express();
 
@@ -13,7 +15,9 @@ app.use(json());
 app.use(cors());
 app.use(morgan('dev'));
 app.use(helmet());
+
 app.use('/auth', authRouter);
+app.use('/users', restricted, userRouter);
 
 app.get('/', (req, res) => {
   res.send('<h2>Application is running');
