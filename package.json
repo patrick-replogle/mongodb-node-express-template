@@ -1,5 +1,5 @@
 {
-  "name": "mongo-node template",
+  "name": "mongodb-node-express-template",
   "version": "1.0.0",
   "description": "Node-Mongodb template",
   "main": "index.js",
